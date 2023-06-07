@@ -6,6 +6,9 @@ def main():
     if len(sys.argv) == 1:
         print('You have to select a option')
         return
+    if len(sys.argv) == 2:
+        print('Insert the name of the new folder')
+        return
 
     option = sys.argv[1]
     if option == 'all':
