@@ -21,14 +21,9 @@ def main():
     if option == 'all':
         all_files_path = SOURCE_PATH + '*'
         _copy_files(all_files_path, new_folder)
-    elif option == 'pdf':
-        all_pdf_files_path = SOURCE_PATH + '*.pdf'
-        _copy_files(all_pdf_files_path, new_folder)
-    elif option == 'json':
-        all_json_files_path = SOURCE_PATH + '*.json'
-        _copy_files(all_json_files_path, new_folder)
     else:
-        print('Option not valid')
+        specific_files_path = SOURCE_PATH + f'*.{option}'
+        _copy_files(specific_files_path, new_folder)
 
 
 def _create_new_folder(new_folder_name):
