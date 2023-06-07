@@ -2,15 +2,18 @@ import sys
 
 
 def main():
+    if len(sys.argv) == 0:
+        print('You have to select a option')
+
     option = sys.argv[1]
     if option == 'all':
-        return 'Copy all files'
+        print('Copy all files')
     elif option == 'pdf':
-        return 'Copy only pdf files'
+        print('Copy only pdf files')
     elif option == 'json':
-        return 'Copy only json files'
+        print('Copy only json files')
     else:
-        return 'Option not valid'
+        print('Option not valid')
 
 
 if __name__ == "__main__":
