@@ -37,8 +37,16 @@ def main():
             shutil.copy(file, new_folder)
         print('Finished')
     elif option == 'json':
-        print('Copy only json files')
-        print(glob.glob('./tmp/*.json'))
+        if not os.path.isdir(new_folder):
+            os.makedirs(new_folder)
+            print(f'A folder named {new_folder} was created.')
+        else:
+            print(f'Already have a folder named {new_folder}')
+
+        for file in glob.glob('./tmp/*.json'):
+            print(f'Copying {file} to {new_folder}')
+            shutil.copy(file, new_folder)
+        print('Finished')
     else:
         print('Option not valid')
 
