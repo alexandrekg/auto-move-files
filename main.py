@@ -1,14 +1,16 @@
 import sys
-
+import os
+import glob
 
 def main():
     if len(sys.argv) == 1:
         print('You have to select a option')
         return
-    
+
     option = sys.argv[1]
     if option == 'all':
         print('Copy all files')
+        print(glob.glob('./tmp/*'))
     elif option == 'pdf':
         print('Copy only pdf files')
     elif option == 'json':
