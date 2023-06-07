@@ -3,6 +3,8 @@ import glob
 import os
 import shutil
 
+SOURCE_PATH = './tmp/'
+
 
 def main():
     if len(sys.argv) == 1:
@@ -17,10 +19,8 @@ def main():
     _create_new_folder(new_folder)
 
     if option == 'all':
-        for file in glob.glob('./tmp/*'):
-            print(f'Copying {file} to {new_folder}')
-            shutil.copy(file, new_folder)
-        print('Finished')
+        all_files_path = SOURCE_PATH + '*'
+        _copy_files(all_files_path, new_folder)
     elif option == 'pdf':
         for file in glob.glob('./tmp/*.pdf'):
             print(f'Copying {file} to {new_folder}')
@@ -39,6 +39,14 @@ def _create_new_folder(new_folder_name):
     if not os.path.isdir(new_folder_name):
         os.makedirs(new_folder_name)
         return
+
+
+def _copy_files(source_dir, destination_dir):
+    for file in glob.glob(source_dir):
+        print(f"Copying {file} to {destination_dir}")
+        shutil.copy(file, destination_dir)
+
+    print('Finished')
 
 
 if __name__ == "__main__":
