@@ -14,41 +14,31 @@ def main():
 
     option = sys.argv[1]
     new_folder = sys.argv[2]
-    if option == 'all':
-        if not os.path.isdir(new_folder):
-            os.makedirs(new_folder)
-            print(f'A folder named {new_folder} was created.')
-        else:
-            print(f'Already have a folder named {new_folder}')
+    _create_new_folder(new_folder)
 
+    if option == 'all':
         for file in glob.glob('./tmp/*'):
             print(f'Copying {file} to {new_folder}')
             shutil.copy(file, new_folder)
         print('Finished')
     elif option == 'pdf':
-        if not os.path.isdir(new_folder):
-            os.makedirs(new_folder)
-            print(f'A folder named {new_folder} was created.')
-        else:
-            print(f'Already have a folder named {new_folder}')
-
         for file in glob.glob('./tmp/*.pdf'):
             print(f'Copying {file} to {new_folder}')
             shutil.copy(file, new_folder)
         print('Finished')
     elif option == 'json':
-        if not os.path.isdir(new_folder):
-            os.makedirs(new_folder)
-            print(f'A folder named {new_folder} was created.')
-        else:
-            print(f'Already have a folder named {new_folder}')
-
         for file in glob.glob('./tmp/*.json'):
             print(f'Copying {file} to {new_folder}')
             shutil.copy(file, new_folder)
         print('Finished')
     else:
         print('Option not valid')
+
+
+def _create_new_folder(new_folder_name):
+    if not os.path.isdir(new_folder_name):
+        os.makedirs(new_folder_name)
+        return
 
 
 if __name__ == "__main__":
