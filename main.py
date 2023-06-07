@@ -25,10 +25,8 @@ def main():
         all_pdf_files_path = SOURCE_PATH + '*.pdf'
         _copy_files(all_pdf_files_path, new_folder)
     elif option == 'json':
-        for file in glob.glob('./tmp/*.json'):
-            print(f'Copying {file} to {new_folder}')
-            shutil.copy(file, new_folder)
-        print('Finished')
+        all_json_files_path = SOURCE_PATH + '*.json'
+        _copy_files(all_json_files_path, new_folder)
     else:
         print('Option not valid')
 
