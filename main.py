@@ -1,6 +1,6 @@
 import sys
-import os
 import glob
+
 
 def main():
     if len(sys.argv) == 1:
