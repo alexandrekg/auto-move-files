@@ -3,6 +3,7 @@ import glob
 import os
 import shutil
 
+
 def main():
     if len(sys.argv) == 1:
         print('You have to select a option')
@@ -25,8 +26,16 @@ def main():
             shutil.copy(file, new_folder)
         print('Finished')
     elif option == 'pdf':
-        print('Copy only pdf files')
-        print(glob.glob('./tmp/*.pdf'))
+        if not os.path.isdir(new_folder):
+            os.makedirs(new_folder)
+            print(f'A folder named {new_folder} was created.')
+        else:
+            print(f'Already have a folder named {new_folder}')
+
+        for file in glob.glob('./tmp/*.pdf'):
+            print(f'Copying {file} to {new_folder}')
+            shutil.copy(file, new_folder)
+        print('Finished')
     elif option == 'json':
         print('Copy only json files')
         print(glob.glob('./tmp/*.json'))
