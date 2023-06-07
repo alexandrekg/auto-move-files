@@ -2,9 +2,10 @@ import sys
 
 
 def main():
-    if len(sys.argv) == 0:
+    if len(sys.argv) == 1:
         print('You have to select a option')
-
+        return
+    
     option = sys.argv[1]
     if option == 'all':
         print('Copy all files')
