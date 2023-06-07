@@ -16,6 +16,7 @@ def main():
         print(glob.glob('./tmp/*.pdf'))
     elif option == 'json':
         print('Copy only json files')
+        print(glob.glob('./tmp/*.json'))
     else:
         print('Option not valid')
 
