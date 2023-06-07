@@ -13,6 +13,7 @@ def main():
         print(glob.glob('./tmp/*'))
     elif option == 'pdf':
         print('Copy only pdf files')
+        print(glob.glob('./tmp/*.pdf'))
     elif option == 'json':
         print('Copy only json files')
     else:
