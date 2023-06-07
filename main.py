@@ -1,7 +1,7 @@
 import sys
 import glob
 import os
-
+import shutil
 
 def main():
     if len(sys.argv) == 1:
@@ -14,8 +14,16 @@ def main():
     option = sys.argv[1]
     new_folder = sys.argv[2]
     if option == 'all':
-        print('Copy all files')
-        print(glob.glob('./tmp/*'))
+        if not os.path.isdir(new_folder):
+            os.makedirs(new_folder)
+            print(f'A folder named {new_folder} was created.')
+        else:
+            print(f'Already have a folder named {new_folder}')
+
+        for file in glob.glob('./tmp/*'):
+            print(f'Copying {file} to {new_folder}')
+            shutil.copy(file, new_folder)
+        print('Finished')
     elif option == 'pdf':
         print('Copy only pdf files')
         print(glob.glob('./tmp/*.pdf'))
@@ -24,12 +32,6 @@ def main():
         print(glob.glob('./tmp/*.json'))
     else:
         print('Option not valid')
-
-    if not os.path.isdir(new_folder):
-        os.makedirs(new_folder)
-        print(f'A folder named {new_folder} was created.')
-    else:
-        print(f'Already have a folder named {new_folder}')
 
 
 if __name__ == "__main__":
