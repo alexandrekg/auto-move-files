@@ -13,3 +13,8 @@ python main.py all my-named-folder
 ```commandline
 python main.py pdf my-named-folder
 ```
+
+3.Copy all JSON files from /tmp/ dir to a named_folder
+```commandline
+python main.py json my-named-folder
+```
