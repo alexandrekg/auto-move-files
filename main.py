@@ -7,12 +7,7 @@ SOURCE_PATH = './tmp/'
 
 
 def main():
-    if len(sys.argv) == 1:
-        print('You have to select a option')
-        return
-    if len(sys.argv) == 2:
-        print('Insert the name of the new folder')
-        return
+    _validate_args(sys.argv)
 
     option = sys.argv[1]
     new_folder = sys.argv[2]
@@ -38,6 +33,15 @@ def _copy_files(source_dir, destination_dir):
         shutil.copy(file, destination_dir)
 
     print('Process of copy files has finished.')
+
+
+def _validate_args(args):
+    if len(args) == 1:
+        print('You have to select a option')
+        raise SystemExit
+    if len(args) == 2:
+        print('Insert the name of the new folder')
+        raise SystemExit
 
 
 if __name__ == "__main__":
