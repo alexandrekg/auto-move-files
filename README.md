@@ -18,3 +18,9 @@ python main.py pdf my-named-folder
 ```commandline
 python main.py json my-named-folder
 ```
+
+4.If you put another file in /tmp/ dir, you can type that file extension on the execution, example:
+- You put a .txt file in the /tmp/ dir
+```commandline
+python main.py txt my-named-folder
+```
