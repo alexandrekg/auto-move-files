@@ -37,7 +37,7 @@ def _copy_files(source_dir, destination_dir):
         print(f"Copying {file} to {destination_dir}")
         shutil.copy(file, destination_dir)
 
-    print('Finished')
+    print('Process of copy files has finished.')
 
 
 if __name__ == "__main__":
